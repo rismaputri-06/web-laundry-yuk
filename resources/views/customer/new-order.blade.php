@@ -302,9 +302,26 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         errorBox.classList.add('hidden');
         errorBox.classList.remove('flex');
+    // Validasi sebelum submit
+    if (pickupCheckbox.checked) {
+        const pickupDate = document.getElementById('pickupDate').value;
+        const pickupAddress = document.getElementById('pickupAddress').value.trim();
         submitBtn.disabled = true;
         submitText.textContent = 'Memproses...';
-
+        
+        if (!pickupDate) {
+            errorText.textContent = 'Silakan pilih tanggal penjemputan.';
+            errorBox.classList.remove('hidden');
+            errorBox.classList.add('flex');
+            return;
+        }
+        if (!pickupAddress) {
+            errorText.textContent = 'Silakan isi alamat penjemputan.';
+            errorBox.classList.remove('hidden');
+            errorBox.classList.add('flex');
+            return;
+        }
+    }
         const payload = {
             serviceType: document.querySelector('input[name="serviceType"]:checked').value,
             weight: parseFloat(weightInput.value),
