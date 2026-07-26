@@ -1,0 +1,99 @@
+# Analisis Sistem -- Project LaundryYuk
+
+## Peran Project Analyst
+
+Sebagai **Project Analyst**, fokus analisis adalah mengidentifikasi
+kebutuhan bisnis, aktor, proses bisnis, serta alur sistem yang akan
+diimplementasikan pada aplikasi LaundryYuk.
+
+## 1. Gambaran Umum
+
+LaundryYuk merupakan sistem informasi manajemen laundry yang mendukung
+proses pemesanan, pengelolaan status cucian, layanan pickup & delivery,
+serta pengelolaan data pelanggan dan layanan oleh admin.
+
+### Tujuan
+
+-   Mempermudah pelanggan melakukan pemesanan laundry.
+-   Memudahkan admin memonitor seluruh proses laundry.
+-   Menyediakan pelacakan status pesanan secara real-time.
+-   Mendukung layanan pickup dan delivery.
+
+## 2. Analisis Aktor
+
+### Customer
+
+Customer dapat: - Login. - Mengelola profil. - Membuat pesanan. -
+Melihat status pesanan.
+
+### Admin
+
+Admin dapat: - Login. - Mengelola profil. - Melihat seluruh pesanan. -
+Mengubah status pesanan. - Mengelola pickup & delivery. - Mengelola
+layanan. - Mengelola data pelanggan.
+
+## 3. Analisis Use Case
+
+Sistem terdiri dari use case bersama (Login, Kelola Profil, Buat
+Pesanan, Lihat Pesanan) dan use case khusus admin (Kelola Status
+Pesanan, Kelola Pickup & Delivery, Kelola Layanan, Kelola Pelanggan).
+
+## 4. Analisis Proses Login
+
+1.  Pengguna membuka aplikasi.
+2.  Login atau registrasi.
+3.  Sistem memvalidasi email dan password.
+4.  Jika tidak valid, pengguna kembali ke halaman login.
+5.  Jika valid, sistem mengidentifikasi role.
+6.  Admin diarahkan ke Dashboard Admin.
+7.  Customer diarahkan ke Dashboard Customer.
+
+## 5. Analisis Pembuatan Pesanan
+
+1.  Customer membuka form pemesanan.
+2.  Mengisi layanan, berat cucian, serta opsi express atau pickup.
+3.  Sistem menghitung total biaya.
+4.  Jika memilih pickup & delivery, customer mengisi alamat, tanggal,
+    dan jam.
+5.  Sistem menyimpan pesanan dengan status awal **Menunggu**.
+
+## 6. Analisis Kelola Status Pesanan
+
+Admin: - mencari pesanan berdasarkan ID, nama pelanggan, atau status; -
+membuka detail pesanan; - melihat progres dan pembayaran; - memperbarui
+status sesuai tahapan proses laundry; - sistem menyimpan perubahan
+sehingga pelanggan memperoleh informasi terbaru.
+
+## 7. Analisis Pickup & Delivery
+
+Admin: - membuka menu pickup & delivery; - memfilter tugas; - memilih
+tugas jemput/antar; - memperbarui status penjemputan atau pengantaran; -
+sistem menyimpan status terbaru.
+
+## 8. Kebutuhan Fungsional
+
+-   Autentikasi pengguna.
+-   Manajemen profil.
+-   CRUD pesanan.
+-   Perhitungan biaya otomatis.
+-   Pelacakan status.
+-   Manajemen pickup & delivery.
+-   Manajemen layanan.
+-   Manajemen pelanggan.
+
+## 9. Kebutuhan Nonfungsional
+
+-   Antarmuka mudah digunakan.
+-   Waktu respon cepat.
+-   Keamanan autentikasi.
+-   Integritas data.
+-   Sistem mudah dikembangkan.
+
+## 10. Kesimpulan
+
+Hasil analisis menunjukkan bahwa LaundryYuk mendigitalisasi proses
+bisnis laundry dari pemesanan hingga penyelesaian layanan. Pemisahan hak
+akses antara customer dan admin membuat proses lebih aman dan
+terstruktur. Integrasi status pesanan serta pickup & delivery
+meningkatkan efisiensi operasional dan kualitas pelayanan kepada
+pelanggan.
