@@ -1,0 +1,11 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "tailwindcss";
+
+@theme {
+    --font-display: 'Manrope', sans-serif;
+}
+
+body{
+    background:#f9f9ff;
+    font-family:'Segoe UI',sans-serif;
+}
