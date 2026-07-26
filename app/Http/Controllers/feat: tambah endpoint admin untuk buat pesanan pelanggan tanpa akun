@@ -104,4 +104,49 @@ class OrderController extends Controller
     ]);
 }
 
+public function storeByAdmin(Request $request)
+{
+    if (!auth()->user()->isAdmin()) {
+        return response()->json(['message' => 'Tidak diizinkan'], 403);
+    }
+
+    $request->validate([
+        'guestName' => 'required|string|max:255',
+        'guestPhone' => 'required|string|max:20',
+        'serviceType' => 'required|in:Cuci Lipat,Cuci Setrika,Setrika Saja',
+        'weight' => 'required|numeric|min:1|max:30',
+        'isExpress' => 'boolean',
+        'instructions' => 'nullable|string|max:500',
+    ]);
+
+    $pricePerKg = match ($request->serviceType) {
+        'Cuci Setrika' => 10000,
+        'Setrika Saja' => 6000,
+        default => 7000,
+    };
+
+    $isExpress = $request->boolean('isExpress');
+    $baseServicePrice = round($request->weight * $pricePerKg);
+    $handlingFee = $isExpress ? 15000 : 0;
+    $totalPrice = $baseServicePrice + $handlingFee;
+
+    $order = Order::create([
+        'user_id' => null,
+        'guest_name' => $request->guestName,
+        'guest_phone' => $request->guestPhone,
+        'order_date' => now()->toDateString(),
+        'weight' => $request->weight,
+        'service_type' => $request->serviceType,
+        'pickup_method' => 'Datang Langsung',
+        'status' => 'Menunggu',
+        'is_express' => $isExpress,
+        'notes' => $request->instructions,
+        'total_price' => $totalPrice,
+    ]);
+
+    return response()->json([
+        'message' => 'Pesanan pelanggan berhasil dibuat',
+        'order_id' => $order->id,
+    ]);
+}
 }
