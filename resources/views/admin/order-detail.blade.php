@@ -67,7 +67,7 @@
 
             {{-- Lifecycle Tracker --}}
             <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-8">Siklus Hidup Pesanan</h3>
+                <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-8">Tracking Pesanan</h3>
 
                 <div class="relative flex justify-between items-start">
                     <div class="absolute top-5 left-0 w-full h-[2px] bg-slate-100 -z-0"></div>
@@ -125,7 +125,7 @@
             {{-- Manifest --}}
             <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
                 <div class="p-4 border-b border-slate-100 flex justify-between items-center">
-                    <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Manifest Laundry</h3>
+                    <h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Rincian Pesanan</h3>
                     <div class="px-2.5 py-1 bg-slate-50 text-[#003d9b] text-xs font-bold rounded-lg border border-slate-200 font-mono">
                         Total Berat: {{ $order->weight }} Kg
                     </div>
