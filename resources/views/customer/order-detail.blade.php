@@ -77,7 +77,21 @@
                     </nav>
                     <div class="flex items-center gap-4 flex-wrap">
                         <h2 class="font-display text-2xl font-bold text-[#091c35]">Pelacakan Pesanan {{ $displayId }}</h2>
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full border border-yellow-200 uppercase">{{ $order->status }}</span>
+                        </nav>
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <h2 class="font-display text-2xl font-bold text-[#091c35]">Pelacakan Pesanan {{ $displayId }}</h2>
+                            @php
+                                $statusColor = match ($order->status) {
+                                    'Menunggu' => 'bg-amber-100 text-amber-800 border-amber-200',
+                                    'Diproses' => 'bg-blue-100 text-blue-800 border-blue-200',
+                                    'Dicuci', 'Dikeringkan' => 'bg-cyan-100 text-cyan-800 border-cyan-200',
+                                    'Disetrika' => 'bg-indigo-100 text-indigo-800 border-indigo-200',
+                                    'Selesai', 'Diantar' => 'bg-emerald-100 text-emerald-800 border-emerald-200',
+                                    default => 'bg-slate-100 text-slate-800 border-slate-200',
+                                };
+                            @endphp
+                            <span class="px-3 py-1 {{ $statusColor }} text-xs font-bold rounded-full border uppercase">{{ $order->status }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -95,8 +109,8 @@
                                 @if ($isDone)
                                 <div class="relative pl-8 text-left">
                                     <div class="absolute left-0 top-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all {{ $isActive ? 'bg-[#dae2ff] border-[#003d9b] ring-4 ring-[#003d9b]/15' : 'bg-green-50 border-green-300' }}">
-                                        <div class="w-2 h-2 rounded-full {{ $isActive ? 'bg-[#003d9b]' : 'bg-green-600' }}"></div>
-                                    </div>
+                                    <span class="material-symbols-outlined text-[12px] {{ $isActive ? 'text-[#003d9b]' : 'text-green-600' }}">{{ $stepIcons[$step] }}</span>
+                                </div>
                                     <p class="text-xs font-bold {{ $isActive ? 'text-[#003d9b]' : 'text-[#091c35]' }}">{{ $step }}</p>
                                     <p class="text-[10px] text-[#737685]">
                                         @if ($isActive)
