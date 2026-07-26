@@ -1,0 +1,61 @@
+# Dokumentasi API - Project LaundryYuk
+
+## Pendahuluan
+Dokumen ini menjelaskan rancangan REST API pada sistem LaundryYuk.
+
+## Arsitektur API
+API menggunakan REST, HTTP, dan JSON sebagai format pertukaran data.
+
+## Endpoint Autentikasi
+### POST /api/login
+- Login pengguna menggunakan email dan password.
+- Mengembalikan token, data pengguna, dan role.
+
+### POST /api/register
+- Registrasi customer baru.
+
+## Endpoint Profil
+### GET /api/profile
+Menampilkan profil pengguna.
+
+### PUT /api/profile
+Memperbarui profil pengguna.
+
+## Endpoint Pesanan
+### GET /api/orders
+Menampilkan daftar pesanan.
+
+### POST /api/orders
+Membuat pesanan baru dengan data layanan, berat, express, dan pickup. Sistem menghitung total biaya otomatis.
+
+### GET /api/orders/{id}
+Menampilkan detail pesanan.
+
+### PUT /api/orders/{id}
+Memperbarui data pesanan.
+
+## Endpoint Status Pesanan
+### PATCH /api/orders/{id}/status
+Digunakan admin untuk mengubah status pesanan seperti Menunggu, Dicuci, Disetrika, Siap Diantar, dan Selesai.
+
+## Endpoint Pickup & Delivery
+### GET /api/pickup
+Menampilkan daftar tugas pickup dan delivery.
+
+### PATCH /api/pickup/{id}
+Mengubah status tugas pickup/delivery.
+
+## Endpoint Layanan
+GET/POST/PUT/DELETE /api/services untuk mengelola layanan laundry.
+
+## Endpoint Pelanggan
+GET /api/customers dan GET /api/customers/{id} untuk melihat data pelanggan.
+
+## Keamanan API
+- Token Authentication
+- Password Hashing
+- Role Based Access Control
+- Validasi input
+
+## Kesimpulan
+API mendukung autentikasi, profil, pesanan, status laundry, pickup & delivery, layanan, dan pelanggan sehingga seluruh proses bisnis LaundryYuk dapat berjalan secara terintegrasi.
