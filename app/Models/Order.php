@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'user_id', 'order_date', 'weight', 'service_type',
-        'pickup_method', 'status', 'total_price',
+    'user_id', 'guest_name', 'guest_phone', 'order_date', 'weight', 'service_type',
+    'pickup_method', 'status', 'is_express', 'notes', 'total_price',
     ];
 
     public function pickupDelivery()
