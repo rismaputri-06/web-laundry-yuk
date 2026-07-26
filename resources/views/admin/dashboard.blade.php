@@ -226,7 +226,14 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="6" class="px-6 py-8 text-center text-slate-400">Belum ada pesanan.</td></tr>
+                            <tr>
+                                <td colspan="6" class="px-6 py-12 text-center">
+                                    <div class="flex flex-col items-center gap-2 text-slate-400">
+                                        <span class="material-symbols-outlined text-3xl">inbox</span>
+                                        <p class="text-sm font-medium">Belum ada pesanan yang masuk hari ini</p>
+                                    </div>
+                                </td>
+                            </tr>
                     @endforelse
                 </tbody>
             </table>
